@@ -11,12 +11,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.Rollback;
 
-import java.io.ObjectOutputStream;
 import java.util.Arrays;
 import java.util.List;
-import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -45,7 +42,11 @@ class PostsRepositoryTest {
         String title = "테스트 게시글";
         String content = "테스트 내용";
         String author = "DevloperKT";
-        Posts expected = new Posts(title, content, author); // Create expected post without id
+        Posts expected = Posts.builder()
+                .title(title)
+                .content(content)
+                .author(author)
+                .build(); // Create expected post without id
 
         // when
         Posts actual = postsRepository.save(expected); // Save the post
