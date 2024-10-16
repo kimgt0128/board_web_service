@@ -1,7 +1,8 @@
 package com.wondrous.board.domain.posts;
 
+import com.wondrous.board.domain.posts.eneity.Posts;
+import com.wondrous.board.domain.posts.repository.PostsRepository;
 import jakarta.persistence.EntityManager;
-import jakarta.persistence.LockModeType;
 import jakarta.persistence.PersistenceContext;
 import jakarta.transaction.Transactional;
 import org.junit.jupiter.api.AfterEach;

@@ -1,10 +1,7 @@
-package com.wondrous.board.domain.posts;
+package com.wondrous.board.domain.posts.repository;
 
-import jakarta.persistence.LockModeType;
+import com.wondrous.board.domain.posts.eneity.Posts;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Lock;
-
-import java.util.List;
 
 public interface PostsRepository extends JpaRepository<Posts, Long> {
 //    @Override

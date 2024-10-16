@@ -1,4 +1,4 @@
-package com.wondrous.board.domain.posts;
+package com.wondrous.board.domain.posts.eneity;
 
 import jakarta.persistence.*;
 import lombok.*;
