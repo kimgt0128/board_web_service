@@ -13,24 +13,24 @@ import java.util.List;
 @RequiredArgsConstructor
 @RestController
 public class PostsApiController {
-    private PostsService postsService;
+    private final PostsService postsService;
 
     //post 객체의 id를 Http 요청으로 받고 DB에서 조회하는 메서드
     @GetMapping("/api/posts/{id}")
-    public PostsResponseDto findById(@PathVariable Long id) {
+    public PostsResponseDto getPostById(@PathVariable Long id) {
         return postsService.findById(id);
     }
 
     //모든 post 객체들을 조회하는 메서드
     @GetMapping("/api/posts")
-    public List<PostsResponseDto> index() {
+    public List<PostsResponseDto> getAllPosts() {
         List<PostsResponseDto> posts = postsService.findAll();
         return posts;
     }
 
     //post 객체를 Http 요청으로 불러와서 DB에 저장하는 메서드
     @PostMapping("/api/posts")
-    public Long save(@RequestBody PostsSaveRequestDto requestDto) {
+    public Long savePost(@RequestBody PostsSaveRequestDto requestDto) {
         return postsService.save(requestDto);
     }
 
