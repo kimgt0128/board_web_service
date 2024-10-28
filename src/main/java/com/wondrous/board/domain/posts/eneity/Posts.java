@@ -1,5 +1,6 @@
 package com.wondrous.board.domain.posts.eneity;
 
+import com.wondrous.board.domain.BaseTimeEntity;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -8,7 +9,7 @@ import lombok.*;
 @ToString
 
 @Entity
-public class Posts {
+public class Posts extends BaseTimeEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

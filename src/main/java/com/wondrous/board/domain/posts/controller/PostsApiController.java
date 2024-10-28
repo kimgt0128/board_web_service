@@ -36,14 +36,14 @@ public class PostsApiController {
 
     //post 객체의 id를 Http 요청으로 불러와서 수정하고 저장해주는 메서드
     @PostMapping("/api/posts/update/{id}")
-    public PostsResponseDto update(@PathVariable Long id,
+    public PostsResponseDto updatePost(@PathVariable Long id,
                         @RequestBody PostsUpdateRequestDto requestDto) {
         return postsService.update(id, requestDto);
     }
 
     //삭제
     @PostMapping("/api/posts/delete/{id}")
-    public Long delete(@PathVariable Long id) {
+    public Long deletePost(@PathVariable Long id) {
         return postsService.delete(id);
     }
 }
