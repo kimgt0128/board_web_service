@@ -1,5 +1,6 @@
 package com.wondrous.board.domain.posts.eneity;
 
+import com.wondrous.board.domain.BaseTimeEntity;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -8,7 +9,7 @@ import lombok.*;
 @ToString
 
 @Entity
-public class Posts {
+public class Posts extends BaseTimeEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -22,7 +23,8 @@ public class Posts {
     private String author;
 
     @Builder
-    public Posts(String title, String content, String author) {
+    public Posts(Long id, String title, String content, String author) {
+        this.id = id;
         this.title = title;
         this.content = content;
         this.author = author;

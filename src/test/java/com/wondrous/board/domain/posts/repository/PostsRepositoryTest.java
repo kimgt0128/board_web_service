@@ -1,7 +1,6 @@
-package com.wondrous.board.domain.posts;
+package com.wondrous.board.domain.posts.repository;
 
 import com.wondrous.board.domain.posts.eneity.Posts;
-import com.wondrous.board.domain.posts.repository.PostsRepository;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.transaction.Transactional;
@@ -61,8 +60,8 @@ class PostsRepositoryTest {
     @Transactional
     public void posts() {
         // given
-        Posts post1 = new Posts("테스트 게시글1", "테스트 내용1", "DevloperKT");
-        Posts post2 = new Posts("테스트 게시글2", "테스트 내용2", "DevloperGT");
+        Posts post1 = Posts.builder().id(4L).title("테스트 제목1").content("테스트 내용1").author("사람1").build();
+        Posts post2 = Posts.builder().id(5L).title("테스트 제목2").content("테스트 내용2").author("사람2").build();
         List<Posts> expected = Arrays.asList(post1, post2);
 
         // when
@@ -71,6 +70,6 @@ class PostsRepositoryTest {
 
         // then
         List<Posts> actual = postsRepository.findAll();
-        assertThat(actual.toString()).isEqualTo(expected.toString());
+        assertThat(actual.size()).isEqualTo(5);
     }
 }

@@ -1,6 +1,7 @@
 package com.wondrous.board.domain.posts.dto.response;
 
 import com.wondrous.board.domain.posts.eneity.Posts;
+import lombok.Builder;
 import lombok.Getter;
 
 @Getter
@@ -17,5 +18,12 @@ public class PostsResponseDto {
         this.title = entity.getTitle();
         this.content = entity.getContent();
         this.author = entity.getAuthor();
+    }
+
+    @Builder
+    public PostsResponseDto(Long id, String title, String content, String author) {
+        this.id = id;
+        this.title = title;
+        this.content = content;
     }
 }

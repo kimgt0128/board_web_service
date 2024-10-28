@@ -18,7 +18,7 @@ public class PostsService {
     //생성자 주입으로 레포지토리 의존성 추가(권장)
     //서비스 계층에서 Dto Entity 책임 분리!
 
-    private PostsRepository postsRepository;
+    private final PostsRepository postsRepository;
     //게시글 생성 메서드(Create)
     @Transactional
     public Long save(PostsSaveRequestDto requestDto) {
