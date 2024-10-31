@@ -1,4 +1,4 @@
-package com.wondrous.board.helloController;
+package com.wondrous.board.controller;
 
 
 import org.springframework.web.bind.annotation.GetMapping;

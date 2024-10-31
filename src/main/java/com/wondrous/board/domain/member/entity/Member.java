@@ -1,6 +1,7 @@
-package com.wondrous.board.domain.member;
+package com.wondrous.board.domain.member.entity;
 
 
+import com.wondrous.board.domain.BaseTimeEntity;
 import jakarta.persistence.*;
 import lombok.Builder;
 import lombok.Getter;
@@ -10,7 +11,7 @@ import lombok.NoArgsConstructor;
 @Getter
 
 @Entity
-public class Member {
+public class Member extends BaseTimeEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -37,6 +38,14 @@ public class Member {
         this.picture = picture;
         return this;
     }
+
+    //provider
+    private String provider;
+
+    //providerId
+    private String providerId;
+
+
 
 
 }
