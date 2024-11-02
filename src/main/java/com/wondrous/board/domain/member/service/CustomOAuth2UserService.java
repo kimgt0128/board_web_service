@@ -1,6 +1,7 @@
 package com.wondrous.board.domain.member.service;
 
 import com.wondrous.board.domain.member.dto.CustomOAuth2User;
+import com.wondrous.board.domain.member.dto.NaverResponse;
 import com.wondrous.board.domain.member.dto.OAuth2Response;
 import org.springframework.security.oauth2.client.userinfo.DefaultOAuth2UserService;
 import org.springframework.security.oauth2.client.userinfo.OAuth2UserRequest;
@@ -21,6 +22,9 @@ public class CustomOAuth2UserService extends DefaultOAuth2UserService {
         OAuth2Response oAuth2Response = null;
 
         //Naver, Google, Kakao 선택 후 강제 로그인 로직 구현
+        if (registrationId.equals("naver")) {
+            oAuth2Response = new NaverResponse(oAuth2User.getAttributes());
+        }
 
         String role = "ROLE_USER";
         //나머지 구현

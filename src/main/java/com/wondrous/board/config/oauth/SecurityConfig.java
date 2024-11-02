@@ -43,7 +43,9 @@ public class SecurityConfig {
                         .requestMatchers(new AntPathRequestMatcher("/api/**")).hasRole(Role.USER.name())
                         .anyRequest().authenticated())
                 //이후 유저 엔드 포인트 설정
-                .oauth2Login(Customizer.withDefaults())
+                .oauth2Login((oauth2) -> oauth2
+                        .userInfoEndpoint(userInfoEndpointConfig ->
+                                userInfoEndpointConfig.userService(customOAuth2UserService)))
                 .logout((logout) -> logout
                         .logoutSuccessUrl("/"));
 
