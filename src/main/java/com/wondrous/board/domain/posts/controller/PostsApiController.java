@@ -11,38 +11,39 @@ import java.util.List;
 
 
 @RequiredArgsConstructor
+@RequestMapping("/api/post")
 @RestController
 public class PostsApiController {
     private final PostsService postsService;
 
     //post 객체의 id를 Http 요청으로 받고 DB에서 조회하는 메서드
-    @GetMapping("/api/posts/{id}")
+    @GetMapping("/{id}")
     public PostsResponseDto getPostById(@PathVariable Long id) {
         return postsService.findById(id);
     }
 
     //모든 post 객체들을 조회하는 메서드
-    @GetMapping("/api/posts")
+    @GetMapping
     public List<PostsResponseDto> getAllPosts() {
         List<PostsResponseDto> posts = postsService.findAll();
         return posts;
     }
 
     //post 객체를 Http 요청으로 불러와서 DB에 저장하는 메서드
-    @PostMapping("/api/posts")
+    @PostMapping
     public Long savePost(@RequestBody PostsSaveRequestDto requestDto) {
         return postsService.save(requestDto);
     }
 
     //post 객체의 id를 Http 요청으로 불러와서 수정하고 저장해주는 메서드
-    @PostMapping("/api/posts/update/{id}")
+    @PutMapping("/{id}")
     public PostsResponseDto updatePost(@PathVariable Long id,
                         @RequestBody PostsUpdateRequestDto requestDto) {
         return postsService.update(id, requestDto);
     }
 
     //삭제
-    @PostMapping("/api/posts/delete/{id}")
+    @PostMapping("/{id}")
     public Long deletePost(@PathVariable Long id) {
         return postsService.delete(id);
     }
