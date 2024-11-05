@@ -1,4 +1,4 @@
-package com.wondrous.board.domain.posts.controller;
+package com.wondrous.board.domain.posts.apiController;
 
 import com.wondrous.board.domain.posts.dto.request.PostsSaveRequestDto;
 import com.wondrous.board.domain.posts.dto.request.PostsUpdateRequestDto;
