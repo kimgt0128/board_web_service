@@ -14,9 +14,12 @@ public enum ErrorCode {
     NOT_FOUND(HttpStatus.NOT_FOUND, "E4", "존제하지 않는 엔티티입니다."),
 
     //Post
-    ARTICLE_NOT_FOUND(HttpStatus.NOT_FOUND, "P1", "존재하지 않는 아티클입니다.");
+    ARTICLE_NOT_FOUND(HttpStatus.NOT_FOUND, "P1", "존재하지 않는 아티클입니다."),
     //Member
+    MEMER_NOT_FOUND(HttpStatus.NOT_FOUND, "M1", "존재하지 않는 멤버입니다."),
 
+    //이미지 저장
+    IMAGE_WRONG_FILE_FORMAT(HttpStatus.BAD_REQUEST, "I1", "지원하지 않는 확장자 파일입니다.");
     //Business
 
     private final String message;
