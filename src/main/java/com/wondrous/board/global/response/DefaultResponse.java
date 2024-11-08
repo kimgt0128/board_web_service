@@ -4,7 +4,6 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 @Getter
-@AllArgsConstructor
 public abstract class DefaultResponse {
     // 응답 코드
     protected int status;
