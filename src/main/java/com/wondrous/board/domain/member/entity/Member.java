@@ -1,7 +1,7 @@
 package com.wondrous.board.domain.member.entity;
 
 
-import com.wondrous.board.domain.BaseTimeEntity;
+import com.wondrous.board.domain.common.BaseTimeEntity;
 import jakarta.persistence.*;
 import lombok.Builder;
 import lombok.Getter;

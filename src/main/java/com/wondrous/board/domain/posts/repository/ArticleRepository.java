@@ -1,9 +1,9 @@
 package com.wondrous.board.domain.posts.repository;
 
-import com.wondrous.board.domain.posts.eneity.Posts;
+import com.wondrous.board.domain.posts.eneity.Article;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface PostsRepository extends JpaRepository<Posts, Long> {
+public interface ArticleRepository extends JpaRepository<Article, Long> {
 //    @Override
 //    @Lock(LockModeType.OPTIMISTIC)
 //    List<Posts> findAll();

@@ -1,15 +1,17 @@
 package com.wondrous.board.domain.posts.eneity;
 
-import com.wondrous.board.domain.BaseTimeEntity;
+import com.wondrous.board.domain.common.BaseTimeEntity;
 import jakarta.persistence.*;
 import lombok.*;
 
-@NoArgsConstructor
+
+@NoArgsConstructor(access = AccessLevel.PROTECTED) //JPA에서 필수
+//@AllArgsConstructor(access = AccessLevel.PROTECTED) - 필요하면 기본 생성자로 대체
 @Getter
 @ToString
 
 @Entity
-public class Posts extends BaseTimeEntity {
+public class Article extends BaseTimeEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -23,7 +25,7 @@ public class Posts extends BaseTimeEntity {
     private String author;
 
     @Builder
-    public Posts(Long id, String title, String content, String author) {
+    public Article(Long id, String title, String content, String author) {
         this.id = id;
         this.title = title;
         this.content = content;
