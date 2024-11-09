@@ -1,4 +1,4 @@
-package com.wondrous.board.domain;
+package com.wondrous.board.domain.common;
 
 import jakarta.persistence.EntityListeners;
 import jakarta.persistence.MappedSuperclass;

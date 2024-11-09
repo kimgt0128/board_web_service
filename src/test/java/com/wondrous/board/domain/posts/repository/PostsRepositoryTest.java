@@ -1,6 +1,6 @@
 package com.wondrous.board.domain.posts.repository;
 
-import com.wondrous.board.domain.posts.eneity.Posts;
+import com.wondrous.board.domain.posts.eneity.Article;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.transaction.Transactional;
@@ -22,7 +22,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 class PostsRepositoryTest {
 
     @Autowired
-    PostsRepository postsRepository;
+    ArticleRepository postsRepository;
 
     @PersistenceContext
     EntityManager entityManager; // Inject the EntityManager
@@ -42,14 +42,14 @@ class PostsRepositoryTest {
         String title = "테스트 게시글";
         String content = "테스트 내용";
         String author = "DevloperKT";
-        Posts expected = Posts.builder()
+        Article expected = Article.builder()
                 .title(title)
                 .content(content)
                 .author(author)
                 .build(); // Create expected post without id
 
         // when
-        Posts actual = postsRepository.save(expected); // Save the post
+        Article actual = postsRepository.save(expected); // Save the post
 
         // then
         assertThat(actual).isEqualTo(expected); // Compare only the title
@@ -60,16 +60,16 @@ class PostsRepositoryTest {
     @Transactional
     public void posts() {
         // given
-        Posts post1 = Posts.builder().id(4L).title("테스트 제목1").content("테스트 내용1").author("사람1").build();
-        Posts post2 = Posts.builder().id(5L).title("테스트 제목2").content("테스트 내용2").author("사람2").build();
-        List<Posts> expected = Arrays.asList(post1, post2);
+        Article post1 = Article.builder().id(4L).title("테스트 제목1").content("테스트 내용1").author("사람1").build();
+        Article post2 = Article.builder().id(5L).title("테스트 제목2").content("테스트 내용2").author("사람2").build();
+        List<Article> expected = Arrays.asList(post1, post2);
 
         // when
         postsRepository.save(post1);
         postsRepository.save(post2);
 
         // then
-        List<Posts> actual = postsRepository.findAll();
+        List<Article> actual = postsRepository.findAll();
         assertThat(actual.size()).isEqualTo(5);
     }
 }
